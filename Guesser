@@ -4,38 +4,35 @@
 # Random number generator
 import random
 secret_number = random.randint(1, 999)
+print(secret_number)
 
-
-# Asks user for input
+#Asks user for input, outputs the difference
 user_Number = int(input("Pick a number between 1 and 999: "))
 differences = abs(user_Number-secret_number)
 
-
-#Checks and prints/gives feedback on how close your guess was
-while differences >= 250:
-    print("Your guess is COLD")
-    user_Number = int(input("Pick a new number: "))
-    differences = abs(user_Number-secret_number)
-while differences >= 150 and differences <= 250:
-    print("Your guess is getting WARM")
-    user_Number = int(input("Pick a new number: "))
-    differences = abs(user_Number-secret_number)
-
-while differences >= 50 and differences <= 149:
-    print("Your guess is definitely getting WARMER")
-    user_Number = int(input("Pick a new number: "))
-    differences = abs(user_Number-secret_number)
-
-while differences >= 11 and differences <= 49:
-    print("Your guess is getting VERY HOT") 
-    user_Number = int(input("Pick a new number: "))
-    differences = abs(user_Number-secret_number)
-
-while differences >= 1 and differences <= 10:
-    print("That guess was SUPER HOT")
-    user_Number = int(input("Pick a new number: "))
-    differences = abs(user_Number-secret_number)
+#Checks the difference and gives the user feedback
+while user_Number != secret_number: 
+    if differences >= 250:
+        print("Your guess is COLD")
+        user_Number = int(input("Pick a new number: "))
+        differences = abs(user_Number-secret_number)
+    elif differences >= 150 and differences <= 250:
+        print("Your guess is getting WARM")
+        user_Number = int(input("Pick a new number: "))
+        differences = abs(user_Number-secret_number)
+    elif differences >= 50 and differences <= 149:
+        print("Your guess is definitely getting WARMER")
+        user_Number = int(input("Pick a new number: "))
+        differences = abs(user_Number-secret_number)
+    elif differences >= 11 and differences <= 49:
+        print("Your guess is getting VERY HOT") 
+        user_Number = int(input("Pick a new number: "))
+        differences = abs(user_Number-secret_number)
+    elif differences >= 1 and differences <= 10:
+        print("That guess was SUPER HOT")
+        user_Number = int(input("Pick a new number: "))
+        differences = abs(user_Number-secret_number)
                         
 # Final condition
 if user_Number == secret_number:
-    print("Well done! You are free now.")
+    print("Well done, muggle! You are free now.")
